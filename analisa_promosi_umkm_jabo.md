@@ -4,7 +4,8 @@ Di tulisan ini aku akan bahas analisaku tentang **dataset penjualan promosi UMKM
 1. Dataset sudah bersih dari sumbernya, tidak ada missing value jadi tidak perlu data cleaning.
 2. Data dari tanggal 1 Januari 2025 - 31 Desemeber 2025 (1 tahun).
 3. Berisi 2.029 data transaksi, yang terdiri dari: 1.847 selesai, 100 dibatalkan, dan 82 refund.
-4. Transaksi dilakukan melalui beberapa channel, yaitu: GoFood, GrabFood,
+4. Transaksi dilakukan melalui beberapa channel, yaitu: GoFood, GrabFood, POS Kasir (Offline), ShopeeFood, Tokopedia (Tiktok), dan website.
+5. Tidak ada lonjakan transaksi pada tanggal tertentu.
 <br>
 
 ```sql
@@ -18,4 +19,12 @@ ORDER BY transaction_date ASC;
 SELECT * 
 FROM umkm_jabodetabek.dataset_penjualan_promosi_umkm
 WHERE order_status = 'Selesai';
+
+-- Mengurutkan transaksi terbanyak berdasarkan tanggal
+SELECT 
+    DATE(transaction_date) AS date, 
+    COUNT(*) AS total_transactions
+FROM umkm_jabodetabek.dataset_penjualan_promosi_umkm
+GROUP BY DATE(transaction_date)
+ORDER BY total_transactions DESC;
 ```
