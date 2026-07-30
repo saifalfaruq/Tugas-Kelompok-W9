@@ -6,6 +6,7 @@ Di tulisan ini aku akan bahas analisaku tentang **dataset penjualan promosi UMKM
 3. Berisi 2.029 data transaksi, yang terdiri dari: 1.847 selesai, 100 dibatalkan, dan 82 refund.
 4. Transaksi dilakukan melalui beberapa channel, yaitu: GoFood, GrabFood,
 <br>
+
 ```sql
 -- BEBERAPA COMMAND SQL YANG AKU GUNAKAN:
 -- Mengurutkan data berdasarkan tgl trx
